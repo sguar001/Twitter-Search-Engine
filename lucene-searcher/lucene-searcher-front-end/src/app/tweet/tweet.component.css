@@ -1,0 +1,201 @@
+/* tweetComponent's private CSS styles */
+
+/*remove bullet points from list of returned tweet matches*/
+.tweets-list
+{
+  list-style-type: none;
+}
+
+/*add margin and color/border to each element returned in tweet list*/
+.tweets-list li 
+{
+  cursor: pointer;
+  position: relative;
+  left: 0;
+
+  background-color: #fff;
+
+  margin: 1.2em;
+  padding: 10px 10px;
+  height: 21.6em;
+
+  border: 2px solid black;
+  border-radius: 4px;
+}
+
+/*add color to tweet item when hover*/
+.tweets-list li:hover 
+{
+  color: white;
+  background-color: #5DADE2;
+  left: .1em;
+
+  transition-duration: 0.3s;
+}
+
+/*center div that contains search box*/
+.search
+{
+  text-align: center;
+  margin-top: 35px;
+}
+
+/*stylize fontsize and height/width of search box*/
+#search-box
+{
+  font-size: 18px;
+  height: 36px;
+  width: 30%;
+}
+
+/*stylize search button*/
+#search-button
+{
+  margin-left: 15px;
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 12px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+
+  border-radius: 8px;
+}
+
+/*stylize map plot button*/
+#plot-button
+{
+  margin-left: 15px;
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 12px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+
+  border-radius: 8px;
+}
+
+/*stylize nearest tweets button*/
+#nearest-button
+{
+  margin-left: 15px;
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 12px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+
+  border-radius: 8px;
+}
+
+/*add margin to results title*/
+#results-title
+{
+  margin-left: 10%;
+}
+
+/*set width and margin of results body*/
+#results-body
+{
+  width: 62%;
+  display: table;
+  margin: 10px auto;
+}
+
+/*align text at footer*/
+#footer
+{
+  text-align: center;
+}
+
+/*individual tweet content*/
+
+/*set dimensions of user profile picture*/
+#user-pic > img
+{
+  width: 10%;
+  height: 10%;
+}
+
+/*position the div that holds user info*/
+#user-info
+{
+  position: absolute;
+  top: 20%;
+  margin-left: 10px;
+}
+
+/*position the user tweet*/
+#user-tweet
+{
+  position: relative;
+  bottom: 3.0em;
+  text-align: center;
+  margin-top: 50px;
+  margin-left: 1.5em;
+}
+
+/*align the tweet text and give a max width*/
+#user-tweet-text
+{
+  margin: 0 auto;
+  width: 70%;
+}
+
+/*position and stylize the location of tweet*/
+#user-tweet-loc
+{
+  font-size: 16px;
+  width: 33%;
+  position: relative;
+  right: 0;
+  bottom: 0;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+/*give max width to tweet hashtags*/
+#user-tweet-hashtags
+{
+  width: 5%;
+  overflow-y: hidden;
+}
+
+/*add margin to favorites of tweet*/
+#user-tweet-tweet-fav
+{
+  margin-left: 10px;
+}
+
+/*position image for favorites*/
+#user-tweet-tweet-fav > img
+{
+  width: 7%;
+  position: relative;
+  top: 8px;
+}
+
+/*position image for retweets*/
+#user-tweet-tweet-re > img
+{
+  width: 7%;
+  position: relative;
+  top: 8px;
+}
+
+/*give max width and margin to title of tweet, hiding overflow*/
+#user-tweet-title > p
+{
+    max-width: 45%;
+    overflow: hidden;
+    overflow-y: hidden;
+    margin: 10px auto;
+}

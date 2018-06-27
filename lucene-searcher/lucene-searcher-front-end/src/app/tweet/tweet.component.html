@@ -1,0 +1,66 @@
+
+<div #gmap id="gmap" style="width:100%;height:400px;display:none;"></div>
+
+<div class="search">
+	<!-- when searching in search box, call search function in tweet.component.ts -->
+	<input #searchBox id="search-box"
+	(keyup.enter)="search(searchBox.value)"/>
+	<!-- click search buttn to search tweets -->
+	<button id="search-button" (click)="search(searchBox.value)">Search</button>	
+	<!-- click plot button to plot tweets that match given query -->
+	<button id="plot-button" *ngIf="tweets" (click)="plotMarker(tweets)">Plot</button>	
+	<!-- plot tweets that are nearest to user location -->
+	<button id="nearest-button" (click)="displayNearestTweets()">Find Nearest Tweets</button>	
+</div>
+
+<div id="results-title">
+	<h2>Search Results:</h2>
+</div>
+
+<div id="results-body">
+	<!-- if tweets array is available, return them, creating an li for each tweet -->
+	<ul class="tweets-list" *ngIf="tweets">
+	  <li *ngFor="let tweet of tweets">
+	  	<div id="user-content">
+	  		<div layout="row">
+	  			<div flex="20" id="user-pic">
+	  				<!-- if user pic not found, provide default picture (egg) -->
+	  				<img src={{tweet.profilePic}} onerror="this.src='http://digitalspyuk.cdnds.net/17/13/320x320/gallery-1490989538-egg.jpg';">
+	  				<!-- add user screen name and username -->
+			 		<span flex="10" id="user-info">
+			  			{{tweet.name}}
+			  			(@{{tweet.username}})
+	  				</span>
+	  			</div>
+	  		</div>
+	  		<div layout="row">
+			  	<div flex="70" id="user-tweet">
+			  		<!-- add tweet url  -->
+			  		<div id="user-tweet-title"><p>{{tweet.urlTitle}}</p></div>
+			  		<!-- add tweet body text -->
+			  		<div id="user-tweet-text">{{tweet.body}}</div>
+			  		<!-- <div id="user-tweet-hashtags">{{tweet.hashTags}}</div> -->
+			  	</div>
+  		  		<div id="user-tweet-loc">
+  		  			<!-- add location of tweet -->
+		  			<span>Location: {{tweet.place}} </span> 
+		  			<br>
+		  			<!-- add device source of tweet -->
+		  			<span id="user-tweet-src">Source: {{tweet.source}}</span>
+		  			<br>
+		  			<!-- add time creation of tweet -->
+		  			<span id="user-tweet-time">Created at: {{tweet.timeCreated}}</span>
+		  			<br>
+		  			<!-- add retweet icon and retweet stats of tweet -->
+		  			<span id="user-tweet-tweet-re"><img src="http://simpleicon.com/wp-content/uploads/retweet.png">: {{tweet.tweetStats[0]}}</span>
+		  			<!-- add favorites icon and favorites stat of tweet -->
+		  			<span id="user-tweet-tweet-fav"><img src="https://i.pinimg.com/originals/3d/65/db/3d65dbcecc72931a3b7a45a70d291892.png">: {{tweet.tweetStats[1]}}</span>
+		  		</div>
+	  		</div>
+	  	</div>
+	  </li>
+	</ul>
+</div>
+
+<!-- display the last searched query -->
+<h4 id="footer" *ngIf="lastSearch">Last search query: <i>"{{lastSearch}}"</i></h4>
